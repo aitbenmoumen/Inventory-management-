@@ -1,6 +1,8 @@
 #pragma once
 #include <iostream>
 #include <string>
+#include <vector>
+#include <deque>
 using namespace std;
 
 class Produit {
@@ -39,11 +41,37 @@ class Magasin {
 protected:
 	string nom;
 	string adresse;
-	string liste_des_produits;   // a corriger
+	deque<Produit> liste_p;
 public:
 	void afficher() {
 		cout << "Magasin : " << this->nom << " Adresse : " << this->adresse << endl;
+		//Pour afficher la liste des produits propose par une magasin
 		cout << "Liste des produits :" << endl;
-		//une boucle pour afficher les produits qui propose cette magasin !! 
+		for (auto& e : this->liste_p) {
+			 e.afficher();
+		}
 	}
+	void gererEntree() {
+		// pour que le magasin peut faire une mise a jour a la qnt d'un produit dans la liste des pros sinon ajouter un nouveau a la deque
+	}
+	void gererSortie() {
+		// pour que le magasin peut verifier si la qnt est dispo pour effectuer une sortie sinon un message d'erreur 
+	}
+	void ajouterProduit() {
+		//ajouter un produit au stock
+		/*
+		Remarque: vous devez vérifier que la référence assignée ne correspond pas à
+		un autre produit du magasin.Comme vous pouvez générer aléatoirement des
+		références en tenant compte du magasin qui les vend.
+        */
+	}
+	void modifierInfoProd(string ref) {
+		//pour modifier les infos d'un produit en utilisant le ref 
+	}
+	void InfoProduit(string ref) {
+		//iterateur pour selectionner le produit avec un condition ensuite
+		// p.afficher() 
+	}
+
+
 };
