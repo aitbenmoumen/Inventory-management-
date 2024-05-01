@@ -31,10 +31,27 @@ class Fournisseur {
 protected:
 	string nom;
 	string adresse;
+	deque<Produit> produits;
 public:
+	Fournisseur(string n,string adr):nom(n),adresse(adr){}
 	void afficher() {
 		cout << "Fournisseur : " << this->nom << " Adresse : " << this->adresse << endl;
 	}
+	void ajouterProduit(Produit& p) {
+		this->produits.push_back(p);
+	}
+	void afficherProduits() {
+		if (this->produits.empty()) {
+			cout << "Il ya aucun produit pour le moment !!" << endl;
+		}
+		else
+		{
+			for (auto& p : this->produits) {
+				p.afficher();
+			}
+		}
+	}
+
 };
 
 class Magasin {
@@ -75,5 +92,13 @@ public:
 	void disponibilite() {
 		//verifier les stock pour faire des aprovisionnement 
 	}
-
+	void passerCmd() {
+		// passer une cmd au fournisseur
+	}
+	void approvisionner(int inf) {
+		//afficher les produits dont leurs quantite est inferieur a "inf" 
+	}
+	void filtrePrix(float min, float max) {
+		//les produits dont leurs prix est entre min et max
+	}
 };

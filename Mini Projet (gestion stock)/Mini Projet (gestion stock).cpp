@@ -11,6 +11,17 @@ int main()
     std::cout << "Hello World!\n";
     p.afficher();
     p1.afficher();
+    Fournisseur f1("Fournisseur 1", "Adresse 1");
+    Produit p2("Prod1", 10.50, "f1", 1, "Categorie 1");
+    Produit p3("Prod2", 15.20, "f1", 2, "Categorie 2");
+
+    f1.ajouterProduit(p1);
+    f1.ajouterProduit(p2);
+    f1.ajouterProduit(p3);
+    f1.ajouterProduit(p);
+
+    f1.afficherProduits();
+
 }
 
 // Exécuter le programme : Ctrl+F5 ou menu Déboguer > Exécuter sans débogage
