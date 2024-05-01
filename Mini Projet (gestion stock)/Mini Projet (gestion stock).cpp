@@ -7,9 +7,10 @@
 using namespace std;
 int main()
 {
-    Produit p("xxx", 12.2, "alami", 100);
+    Produit p("xxx", 12.2, "alami", 100),p1;
     std::cout << "Hello World!\n";
     p.afficher();
+    p1.afficher();
 }
 
 // Exécuter le programme : Ctrl+F5 ou menu Déboguer > Exécuter sans débogage
