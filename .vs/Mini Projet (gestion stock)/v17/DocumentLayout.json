@@ -1,0 +1,54 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\aaitb\\Desktop\\EMSI\\3IIR-S2\\C prog\\Projet\\Mini Projet (gestion stock)\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{AC5C5BF1-065D-4442-B78E-94B0CAB33F9E}|Mini Projet (gestion stock)\\Mini Projet (gestion stock).vcxproj|C:\\Users\\aaitb\\Desktop\\EMSI\\3IIR-S2\\C prog\\Projet\\Mini Projet (gestion stock)\\Mini Projet (gestion stock)\\Fun.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{AC5C5BF1-065D-4442-B78E-94B0CAB33F9E}|Mini Projet (gestion stock)\\Mini Projet (gestion stock).vcxproj|solutionrelative:Mini Projet (gestion stock)\\Fun.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{AC5C5BF1-065D-4442-B78E-94B0CAB33F9E}|Mini Projet (gestion stock)\\Mini Projet (gestion stock).vcxproj|C:\\Users\\aaitb\\Desktop\\EMSI\\3IIR-S2\\C prog\\Projet\\Mini Projet (gestion stock)\\Mini Projet (gestion stock)\\Mini Projet (gestion stock).cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{AC5C5BF1-065D-4442-B78E-94B0CAB33F9E}|Mini Projet (gestion stock)\\Mini Projet (gestion stock).vcxproj|solutionrelative:Mini Projet (gestion stock)\\Mini Projet (gestion stock).cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Mini Projet (gestion stock).cpp",
+              "DocumentMoniker": "C:\\Users\\aaitb\\Desktop\\EMSI\\3IIR-S2\\C prog\\Projet\\Mini Projet (gestion stock)\\Mini Projet (gestion stock)\\Mini Projet (gestion stock).cpp",
+              "RelativeDocumentMoniker": "Mini Projet (gestion stock)\\Mini Projet (gestion stock).cpp",
+              "ToolTip": "C:\\Users\\aaitb\\Desktop\\EMSI\\3IIR-S2\\C prog\\Projet\\Mini Projet (gestion stock)\\Mini Projet (gestion stock)\\Mini Projet (gestion stock).cpp",
+              "RelativeToolTip": "Mini Projet (gestion stock)\\Mini Projet (gestion stock).cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAARAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-05-01T17:14:36.131Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Fun.h",
+              "DocumentMoniker": "C:\\Users\\aaitb\\Desktop\\EMSI\\3IIR-S2\\C prog\\Projet\\Mini Projet (gestion stock)\\Mini Projet (gestion stock)\\Fun.h",
+              "RelativeDocumentMoniker": "Mini Projet (gestion stock)\\Fun.h",
+              "ToolTip": "C:\\Users\\aaitb\\Desktop\\EMSI\\3IIR-S2\\C prog\\Projet\\Mini Projet (gestion stock)\\Mini Projet (gestion stock)\\Fun.h",
+              "RelativeToolTip": "Mini Projet (gestion stock)\\Fun.h",
+              "ViewState": "AQIAABUAAAAAAAAAAAAowCMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-05-01T17:26:54.171Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
