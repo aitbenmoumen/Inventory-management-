@@ -72,6 +72,8 @@ public:
 		//iterateur pour selectionner le produit avec un condition ensuite
 		// p.afficher() 
 	}
-
+	void disponibilite() {
+		//verifier les stock pour faire des aprovisionnement 
+	}
 
 };
