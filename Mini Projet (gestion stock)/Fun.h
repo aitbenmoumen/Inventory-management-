@@ -5,6 +5,13 @@
 #include <deque>
 using namespace std;
 
+string rouge = "\033[31m", nc = "\033[0m";
+string vert = "\033[32m";
+string jaune = "\033[33m";
+string bleu = "\033[34m";
+string mauve = "\033[35m";
+string cyan = "\033[36m";
+
 class Produit {
 protected:
 	string ref;
@@ -36,9 +43,13 @@ public:
 	int getQnt() {
 		return this->qnt;
 	}
-	//pour avoir la possibilite d'ajouter une qnt a celle qui deja existe
+	//pour avoir la possibilite d'ajouter une qnt a celle qui deja existe quand acheter 
 	void setQnt(int q) {
 		this->qnt += q;
+	}
+	//pour reduire la qnt vendu par les magasin
+	void venteQnt(int q) {
+		this->qnt -= q;
 	}
 	double getPrix() {
 		return this->prix;
@@ -56,14 +67,14 @@ protected:
 public:
 	Fournisseur(string n,string adr):nom(n),adresse(adr){}
 	void afficher() {
-		cout << "Fournisseur : " << this->nom << " Adresse : " << this->adresse << endl;
+		cout << jaune << "Fournisseur : " << this->nom << " Adresse : " << this->adresse << nc << endl;
 	}
 	void ajouterProduit(Produit& p) {
 		this->produits.push_back(p);
 	}
 	void afficherProduits() {
 		if (this->produits.empty()) {
-			cout << "Il ya aucun produit pour le moment !!" << endl;
+			cout << rouge <<"Il ya aucun produit pour le moment !!" << nc << endl;
 		}
 		else
 		{
@@ -80,6 +91,7 @@ protected:
 	string nom;
 	string adresse;
 	deque<Produit> liste_p;
+	deque<Fournisseur> liste_f;
 public:
 	Magasin(string n,string adr):nom(n),adresse(adr){}
 	void afficher() {
@@ -96,6 +108,24 @@ public:
 			}
 		}
 	}
+	void ajouterFournisseur(Fournisseur& f) {
+		liste_f.push_back(f);
+	}
+	void afficherFournisseurs() {
+		for (auto& f : liste_f) {
+			f.afficher();
+		}
+	}
+	void listerProduitsParFournisseur() {
+		cout << "La liste des produits qui propose chaque fournisseur :" << endl;
+		for (auto& f : liste_f) {
+			cout << "++++++++++++++++++++++++++++" << endl;
+			f.afficher();
+			cout << endl;
+			f.afficherProduits();
+		}
+	}
+
 	void gererEntree(Produit& p) {
 		// pour que le magasin peut faire une mise a jour a la qnt d'un produit dans la liste des pros sinon ajouter un nouveau a la deque
 		int found = 0;
@@ -109,14 +139,40 @@ public:
 			this->ajouterProduit(p);
 		}	
 	}
-	void gererSortie() {
+	void gererSortie(string ref,int q) {
 		// pour que le magasin peut verifier si la qnt est dispo pour effectuer une sortie sinon un message d'erreur 
+		if (liste_p.empty()) {
+			cout << rouge << "Pas de produit dans nos stock pour le moment !" << endl;
+		}
+		else {
+			for (auto& p : liste_p) {
+				if (p.getRef() == ref) {
+					if (p.getQnt() < q) {
+						cout << rouge << "La quantite en stock n'est pas suffisante pour repondre a votre besoin !!" << nc << endl;
+					}
+					else
+					{
+						cout << vert << "Votre commande de " << q << " du produit " << ref << "est en cour de traitement. Veuiller passer chez la caisse pour la recuperer !!" << nc << endl;
+						p.venteQnt(q);
+					}
+				}
+				else
+				{
+					continue;
+				}
+			}
+		}
+
 	}
 	void ajouterProduit(Produit& p) {
 		this->liste_p.push_back(p);
 	}
 	void modifierInfoProd(string ref) {
-		//pour modifier les infos d'un produit en utilisant le ref 
+		for (auto& p : liste_p) {
+			if (p.getRef() == ref) {
+
+			}
+		}
 	}
 	void InfoProduit(string ref) {
 		//iterateur pour selectionner le produit avec un condition ensuite

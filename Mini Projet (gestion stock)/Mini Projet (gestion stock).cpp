@@ -7,12 +7,13 @@
 using namespace std;
 int main()
 {
-    Produit p("xxx", 14.2, "alami", 100),p1;
+    Produit p("xxx", 14.2, "alami", 100), p1;
     std::cout << "Hello World!\n";
     p.afficher();
     p1.afficher();
     Fournisseur f1("Fournisseur 1", "Adresse 1");
-    Produit p2("Prod2", 10000.50, "f1", 1, "Categorie 1");
+    Fournisseur f2("Fournisseur 2", "Adresse 2");
+    Produit p2("Prod2", 10000.50, "f1", 2, "Categorie 1");
     Produit p3("Prod3", 105.20, "f1", 6, "Categorie 2");
     Produit p4("Prod4", 1100.20, "f1", 1, "Categorie 2");
 
@@ -20,7 +21,7 @@ int main()
     f1.ajouterProduit(p2);
     f1.ajouterProduit(p3);
     f1.ajouterProduit(p);
-
+    f2.ajouterProduit(p3);
     f1.afficherProduits();
 
     cout << "-------------------------" << endl;
@@ -39,6 +40,20 @@ int main()
     m1.InfoProduit("prod");
     m1.marchandise_inf(5);
     m1.filtrePrix(10, 1000);
+    cout << "++++++++++++++++++++++++++" << endl;
+    m1.ajouterFournisseur(f1);
+    m1.ajouterFournisseur(f2);
+    m1.afficherFournisseurs();
+    m1.listerProduitsParFournisseur();
+
+
+    cout << "********************************************" << endl;
+    m1.afficher();
+    m1.gererSortie("Prod2", 3);
+    m1.afficher();
+    m1.gererSortie("Prod2", 55);
+    m1.afficher();
+
 
 
 
