@@ -121,6 +121,17 @@ public:
 	void InfoProduit(string ref) {
 		//iterateur pour selectionner le produit avec un condition ensuite
 		// p.afficher() 
+		bool found = false;
+		for (auto& pp : this->liste_p) {
+			if (pp.getRef() == ref) {
+				pp.afficher();
+				found = true;
+				break;
+			}
+		}
+		if (found == false) {
+			cout << "Cet produit n'existe pas !!" << endl;
+		}
 	}
 	void approvisionner() {
 		//verifier les stock pour faire des aprovisionnement 
