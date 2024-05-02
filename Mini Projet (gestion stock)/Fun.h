@@ -189,12 +189,19 @@ public:
 			cout << "Cet produit n'existe pas !!" << endl;
 		}
 	}
+
+
+
 	void approvisionner() {
 		//verifier les stock pour faire des aprovisionnement 
 	}
 	void passerCmd() {
 		// passer une cmd au fournisseur
 	}
+
+
+
+
 	void marchandise_inf(int inf) {
 		//afficher les produits dont leurs quantite est inferieur a "inf" 
 		for (auto& p : liste_p) {
@@ -213,3 +220,6 @@ public:
 		}
 	}
 };
+
+
+//il nous faut une class Commande
