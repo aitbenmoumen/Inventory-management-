@@ -22,6 +22,15 @@ int main()
 
     f1.afficherProduits();
 
+    cout << "-------------------------" << endl;
+    Magasin m1("test", "adr1");
+    m1.afficher();
+    m1.gererEntree(p2);
+    m1.gererEntree(p2);
+    m1.gererEntree(p2);
+    m1.gererEntree(p2);
+    m1.gererEntree(p3);
+    m1.afficher();
 }
 
 // Exécuter le programme : Ctrl+F5 ou menu Déboguer > Exécuter sans débogage
