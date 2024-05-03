@@ -3,6 +3,7 @@
 #include <string>
 #include <vector>
 #include <deque>
+#include <chrono>
 using namespace std;
 
 string rouge = "\033[31m", nc = "\033[0m";
@@ -31,6 +32,16 @@ public:
 	void afficher()
 	{
 		cout << "Ref: " << this->ref << " Prix: " << this->prix << " Fournisseur: " << this->fournisseur << " Qnt: " << this->qnt << " Categorie: " << this->categorie << endl;
+	}
+	void modifierInfoProduit() {
+		cout << "Prix: ";
+		cin >> this->prix;
+		cout << "Fournisseur: ";
+		cin >> this->fournisseur;
+		cout << "Quantite: ";
+		cin >> this->qnt;
+		cout << "Categorie: ";
+		cin >> this->categorie;
 	}
 	//pour pouvoir chercher les produits en se basant sur leurs ref et modifier les produits
 	string getRef() {
@@ -94,28 +105,41 @@ protected:
 	deque<Fournisseur> liste_f;
 public:
 	Magasin(string n,string adr):nom(n),adresse(adr){}
+	
+	
 	void afficher() {
 		cout << "Magasin : " << this->nom << " Adresse : " << this->adresse << endl;
 		//Pour afficher la liste des produits propose par une magasin
 		if (liste_p.empty()) {
-			cout << "Cette magasin ne propose aucun produit pour le moment !!" << endl;
+			cout << rouge << "Cette magasin ne propose aucun produit pour le moment !!" << nc << endl;
 		}
 		else
 		{
-			cout << "Liste des produits :" << endl;
+			cout << vert << "\tListe des produits :" << nc << endl;
 			for (auto& e : this->liste_p) {
 				e.afficher();
 			}
 		}
 	}
+
+
 	void ajouterFournisseur(Fournisseur& f) {
 		liste_f.push_back(f);
 	}
+	
+	
+	void ajouterProduit(Produit& p) {
+		this->liste_p.push_back(p);
+	}
+	
+
 	void afficherFournisseurs() {
 		for (auto& f : liste_f) {
 			f.afficher();
 		}
 	}
+	
+	
 	void listerProduitsParFournisseur() {
 		cout << "La liste des produits qui propose chaque fournisseur :" << endl;
 		for (auto& f : liste_f) {
@@ -125,6 +149,7 @@ public:
 			f.afficherProduits();
 		}
 	}
+
 
 	void gererEntree(Produit& p) {
 		// pour que le magasin peut faire une mise a jour a la qnt d'un produit dans la liste des pros sinon ajouter un nouveau a la deque
@@ -139,6 +164,8 @@ public:
 			this->ajouterProduit(p);
 		}	
 	}
+	
+	
 	void gererSortie(string ref,int q) {
 		// pour que le magasin peut verifier si la qnt est dispo pour effectuer une sortie sinon un message d'erreur 
 		if (liste_p.empty()) {
@@ -164,19 +191,26 @@ public:
 		}
 
 	}
-	void ajouterProduit(Produit& p) {
-		this->liste_p.push_back(p);
-	}
+	
+	
 	void modifierInfoProd(string ref) {
+		bool found = false;
 		for (auto& p : liste_p) {
 			if (p.getRef() == ref) {
-
+				p.modifierInfoProduit();
+				found = true;
+			}
+			else {
+				continue;
 			}
 		}
+		if (!found) {
+			cout << rouge << "Ce produit n'existe pas !!" << nc << endl;
+		}
 	}
+	
+	
 	void InfoProduit(string ref) {
-		//iterateur pour selectionner le produit avec un condition ensuite
-		// p.afficher() 
 		bool found = false;
 		for (auto& pp : this->liste_p) {
 			if (pp.getRef() == ref) {
@@ -198,12 +232,7 @@ public:
 	void passerCmd() {
 		// passer une cmd au fournisseur
 	}
-
-
-
-
-	void marchandise_inf(int inf) {
-		//afficher les produits dont leurs quantite est inferieur a "inf" 
+	void marchandise_inf(int inf) { 
 		for (auto& p : liste_p) {
 			if (p.getQnt() < inf) {
 				p.afficher();
@@ -211,7 +240,6 @@ public:
 		}
 	}
 	void filtrePrix(double min, double max) {
-		//les produits dont leurs prix est entre min et max
 		cout << "Pour les produits entre " << min << " et " << max << " on a :" << endl;
 		for (auto & p : liste_p) {
 			if (p.getPrix() > min && p.getPrix() < max) {
@@ -223,3 +251,4 @@ public:
 
 
 //il nous faut une class Commande
+
